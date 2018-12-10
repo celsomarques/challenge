@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: challenge_postgres
+    image: postgres:11.1-alpine
+    environment:
+      POSTGRES_USER: challenge
+      POSTGRES_PASSWORD: challenge
+      POSTGRES_DB: challenge
+    volumes:
+       - ~/storage/challenge/postgres:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - challenge
+    restart: always
+
+  postgres_test:
+    container_name: challenge_postgres_test
+    image: postgres:11.1-alpine
+    environment:
+      POSTGRES_USER: challenge
+      POSTGRES_PASSWORD: challenge
+      POSTGRES_DB: challenge_test
+    volumes:
+       - ~/storage/challenge/postgres:/data/postgres
+    ports:
+      - "5434:5432"
+    networks:
+      - challenge
+    restart: always
+
+networks:
+  challenge:
+    driver: bridge

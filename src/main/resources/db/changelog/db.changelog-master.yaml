@@ -1,0 +1,5 @@
+databaseChangeLog:
+
+  - include:
+      file: create-airport.yaml
+      relativeToChangelogFile: true

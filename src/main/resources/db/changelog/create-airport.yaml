@@ -1,0 +1,18 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: celsomarques
+      changes:
+        - createTable:
+            tableName: airport
+            columns:
+              - column:
+                  name: code
+                  type: varchar(3)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(255)
