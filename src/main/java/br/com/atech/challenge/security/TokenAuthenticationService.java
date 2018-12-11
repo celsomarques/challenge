@@ -1,5 +1,6 @@
 package br.com.atech.challenge.security;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class TokenAuthenticationService {
 
@@ -27,10 +31,13 @@ public class TokenAuthenticationService {
 				.setExpiration(new Date(System.currentTimeMillis() + ONE_HOUR))
 				.signWith(SignatureAlgorithm.HS512, SECRET)
 				.compact();
+		
+		ObjectNode json = new ObjectMapper().createObjectNode();
+		json.put("token", token);
 
-		response.setContentType("application/json");
+		response.setContentType(APPLICATION_JSON_VALUE);
 		response.setCharacterEncoding("utf-8");
-		response.getWriter().write(String.format("{ \"token\": \"%s\" }", token));
+		response.getWriter().write(json.toString());
 	}
 
 	static Authentication getAuthentication(HttpServletRequest request) {
