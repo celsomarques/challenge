@@ -1,0 +1,9 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 5
+      author: celsomarques
+      changes:
+      - sql:
+          sql: insert into pilot (name) values ('Fulano');
+               insert into pilot (name) values ('Beltrano');

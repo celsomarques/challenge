@@ -1,5 +1,18 @@
 databaseChangeLog:
 
   - include:
-      file: create-airport.yaml
+      file: 01-create-airport.yaml
       relativeToChangelogFile: true
+  - include:
+      file: 02-create-pilot.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 03-create-flight.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 04-populate-airport.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 05-populate-pilot.yaml
+      relativeToChangelogFile: true
+      

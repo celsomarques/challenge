@@ -1,0 +1,11 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 4
+      author: celsomarques
+      changes:
+      - sql:
+          sql: insert into airport (code, city) values ('SJK', 'São José dos Campos');
+               insert into airport (code, city) values ('GRU', 'Guarulhos');
+               insert into airport (code, city) values ('CGH', 'São Paulo');
+               insert into airport (code, city) values ('VCP', 'Campinas');

@@ -1,0 +1,18 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 2
+      author: celsomarques
+      changes:
+        - createTable:
+            tableName: pilot
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)

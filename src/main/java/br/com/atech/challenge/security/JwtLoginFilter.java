@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,15 +29,16 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
 
-		AccountCredentials credentials = new ObjectMapper()
-			.readValue(request.getInputStream(), AccountCredentials.class);
-
+		ServletInputStream inputStream = request.getInputStream();
+		if (inputStream == null || inputStream.available() == 0) return null;
+		
+		AccountCredentials credentials = new ObjectMapper().readValue(inputStream, AccountCredentials.class);
 		UsernamePasswordAuthenticationToken userPassToken = new UsernamePasswordAuthenticationToken(
 				credentials.getUsername(),
 				credentials.getPassword(),
 				Collections.emptyList());
 		
-		return getAuthenticationManager().authenticate(userPassToken);
+		return this.getAuthenticationManager().authenticate(userPassToken);
 	}
 
 	@Override

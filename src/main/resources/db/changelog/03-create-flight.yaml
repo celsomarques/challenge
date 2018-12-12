@@ -1,0 +1,42 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 3
+      author: celsomarques
+      changes:
+        - createTable:
+            tableName: flight
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: departure_time
+                  type: TIMESTAMP
+              - column:
+                  name: scheduled_time
+                  type: TIMESTAMP
+              - column:
+                  name: departure
+                  type: varchar(3)
+                  constraints:
+                      nullable: false
+                      foreignKeyName: departure_airport_fk
+                      references: airport(code)
+              - column:
+                  name: arrival
+                  type: varchar(3)
+                  constraints:
+                      nullable: false
+                      foreignKeyName: arrival_airport_fk
+                      references: airport(code)
+              - column:
+                  name: pilot
+                  type: serial
+                  constraints:
+                      nullable: false
+                      foreignKeyName: pilot_fk
+                      references: pilot(id)
