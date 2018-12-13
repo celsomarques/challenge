@@ -23,11 +23,11 @@ public class Pilot {
 
 	@Id
 	@NonNull
-	private String id;
+	private Long id;
 
 	@NonNull
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pilot")
 	private List<Flight> flights;
 }

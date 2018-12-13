@@ -7,3 +7,5 @@ databaseChangeLog:
       - sql:
           sql: insert into pilot (name) values ('Fulano');
                insert into pilot (name) values ('Beltrano');
+      - rollback:
+          sql: delete from pilot;

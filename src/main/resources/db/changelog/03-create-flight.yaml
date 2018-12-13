@@ -40,3 +40,6 @@ databaseChangeLog:
                       nullable: false
                       foreignKeyName: pilot_fk
                       references: pilot(id)
+              - column:
+                  name: aircraft
+                  type: varchar(10)

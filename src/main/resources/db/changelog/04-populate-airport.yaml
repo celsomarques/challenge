@@ -9,3 +9,5 @@ databaseChangeLog:
                insert into airport (code, city) values ('GRU', 'Guarulhos');
                insert into airport (code, city) values ('CGH', 'São Paulo');
                insert into airport (code, city) values ('VCP', 'Campinas');
+      - rollback:
+          sql: delete from airport;

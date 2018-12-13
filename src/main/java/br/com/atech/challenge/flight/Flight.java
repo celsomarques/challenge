@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,14 +40,22 @@ public class Flight {
 	private Date scheduledTime;
 
 	@NonNull
+	@Column(name = "aircraft")
+	private String aircraft;
+	
+	@NonNull
+	@JoinColumn(name = "departure")
 	@ManyToOne
 	private Airport departure;
 	
 	@NonNull
+	@JoinColumn(name = "arrival")
 	@ManyToOne
 	private Airport arrival;
 	
 	@NonNull
+	@JoinColumn(name = "pilot")
 	@ManyToOne
 	private Pilot pilot;
+	
 }
