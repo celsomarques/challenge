@@ -20,6 +20,9 @@ databaseChangeLog:
                   name: scheduled_time
                   type: TIMESTAMP
               - column:
+                  name: status
+                  type: varchar(20)
+              - column:
                   name: departure
                   type: varchar(3)
                   constraints:

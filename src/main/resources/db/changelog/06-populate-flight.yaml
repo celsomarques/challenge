@@ -5,8 +5,8 @@ databaseChangeLog:
       author: celsomarques
       changes:
       - sql:
-          sql: insert into flight (departure_time, departure, scheduled_time, arrival, pilot, aircraft) values ('2018-12-12T12:00:00Z', 'SJK', '2018-12-12T13:00:00Z', 'CGH', 1, 'PT-AHG');
-               insert into flight (departure_time, departure, scheduled_time, arrival, pilot, aircraft) values ('2018-12-12T12:00:00Z', 'SJK', '2018-12-12T13:00:00Z', 'VCP', 2, 'PT-XTA');
+          sql: insert into flight (departure_time, departure, scheduled_time, arrival, status, pilot, aircraft) values ('2018-12-12T12:00:00Z', 'SJK', '2018-12-12T13:00:00Z', 'CGH', 'ACTIVE', 1, 'PT-AHG');
+               insert into flight (departure_time, departure, scheduled_time, arrival, status, pilot, aircraft) values ('2018-12-12T12:00:00Z', 'SJK', '2018-12-12T13:00:00Z', 'VCP', 'LANDED', 2, 'PT-XTA');
 
       - rollback:
           sql: delete from flight;

@@ -16,6 +16,8 @@ public interface FlightProjection {
 	
 	Date getScheduledTime();
 	
+	String getStatus();
+	
 	String getAircraft();
 	
 	AirportProjection getDeparture();

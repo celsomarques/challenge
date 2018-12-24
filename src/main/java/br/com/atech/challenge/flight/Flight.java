@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -38,6 +40,10 @@ public class Flight {
 	@Column(name = "scheduled_time")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date scheduledTime;
+	
+	@NonNull
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	@NonNull
 	@Column(name = "aircraft")
