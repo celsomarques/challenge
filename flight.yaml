@@ -1,0 +1,14 @@
+config:
+  target: 'http://localhost:8081'
+  phases:
+    - duration: 60
+      arrivalRate: 20
+  defaults:
+    headers:
+      authorization: ' Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjaGFsbGVuZ2UifQ.AOwpiBdVbrABJtO17MIl8jgWVcM3j3X8V6AC-wZT__SFUVa_6hGeJgFuvgSt_0lJPumy2dtpwWY2hIYlSoFAfg'
+scenarios:
+  - flow:
+    - get:
+        url: "/flights"
+    - get:
+        url: "/flights/search/status?q=ACTIVE"
